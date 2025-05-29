@@ -1,0 +1,27 @@
+# permissions for end users to edit serviceroles.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  labels:
+    app.kubernetes.io/name: part-two
+    app.kubernetes.io/managed-by: kustomize
+  name: servicerole-editor-role
+rules:
+- apiGroups:
+  - iam.craft-conf.com
+  resources:
+  - serviceroles
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - iam.craft-conf.com
+  resources:
+  - serviceroles/status
+  verbs:
+  - get

@@ -1,0 +1,23 @@
+# permissions for end users to view serviceroles.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  labels:
+    app.kubernetes.io/name: part-three
+    app.kubernetes.io/managed-by: kustomize
+  name: servicerole-viewer-role
+rules:
+- apiGroups:
+  - iam.craft-conf.com
+  resources:
+  - serviceroles
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - iam.craft-conf.com
+  resources:
+  - serviceroles/status
+  verbs:
+  - get
